@@ -1,4 +1,4 @@
-import './vendor';
+import './vendor.ts';
 
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import responsiveFontSizes from '@material-ui/core/styles/responsiveFontSizes';

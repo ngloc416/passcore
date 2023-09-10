@@ -2,15 +2,14 @@
     "name": "passcore",
     "version": "1.0.0",
     "description": "PassCore is a self-service password change utility for Active Directory.",
-    "main": "index.js",
     "scripts": {
         "lint": "tsc --noEmit && eslint ./**/*.{js,ts,tsx}  --quiet",
         "lint:fix": "eslint ./**/*.{js,ts,tsx}  --quiet --fix",
-        "build": "parcel build index.html -d ../wwwroot --no-source-maps",
+        "build": "parcel build index.html --dist-dir ../wwwroot --no-source-maps",
         "build:tsc": "tsc",
         "prettier": "prettier --check ./**/*.ts*",
         "prettier:fix": "prettier --write ./**/*.ts*",
-        "start": "parcel index.html -d ../wwwroot --open --port 4040"
+        "start": "parcel index.html --dist-dir ../wwwroot --open --port 4040"
     },
     "repository": {
         "type": "git",
@@ -25,6 +24,8 @@
     "dependencies": {
         "@material-ui/core": "^4.9.5",
         "@material-ui/icons": "^4.9.1",
+        "@material-ui/styles": "4.11.5",
+        "parcel": "^2.9.3",
         "react": "^16.14.0",
         "react-dom": "^16.14.0",
         "uno-material-ui": "^1.7.40",

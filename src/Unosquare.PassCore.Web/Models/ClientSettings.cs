@@ -47,6 +47,7 @@ public class Alerts
     public string? ErrorScorePassword { get; set; }
     public string? ErrorDistancePassword { get; set; }
     public string? ErrorPwnedPassword { get; set; }
+    public string? ErrorShortPassword { get; set; }
 }
 
 public class ErrorsPasswordForm

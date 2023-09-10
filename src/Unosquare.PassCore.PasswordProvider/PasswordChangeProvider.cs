@@ -57,7 +57,7 @@ public class PasswordChangeProvider : IPasswordChangeProvider
             {
                 _logger.LogError("Failed due to password complex policies: New password length is shorter than AD minimum password length");
 
-                return new ApiErrorItem(ApiErrorCode.ComplexPassword);
+                return new ApiErrorItem(ApiErrorCode.ShortPassword);
             }
 
             // Check if the newPassword is Pwned
@@ -231,7 +231,7 @@ public class PasswordChangeProvider : IPasswordChangeProvider
             // Try by regular ChangePassword method
             userPrincipal.ChangePassword(currentPassword, newPassword);
         }
-        catch
+        catch (Exception ex)
         {
             if (_options.UseAutomaticContext)
             {
@@ -300,10 +300,9 @@ public class PasswordChangeProvider : IPasswordChangeProvider
             ? Domain.GetCurrentDomain().GetDirectoryEntry()
             : new DirectoryEntry(
                 $"{_options.LdapHostnames.First()}:{_options.LdapPort}",
-                _options.LdapUsername,
+        _options.LdapUsername,
                 _options.LdapPassword
             );
-
         return (int)entry.Properties["minPwdLength"].Value;
     }
 }

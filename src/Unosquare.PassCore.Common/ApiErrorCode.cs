@@ -69,4 +69,9 @@ public enum ApiErrorCode
     /// The password is in Pwned database
     /// </summary>
     PwnedPassword = 12,
+
+    /// <summary>
+    /// The password length is shorter than minimum password length
+    /// </summary>
+    ShortPassword = 13,
 }
