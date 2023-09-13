@@ -183,6 +183,9 @@
   <data name="NewPassLabel" xml:space="preserve">
     <value>New Password</value>
   </data>
+  <data name="RegistryKeyName" xml:space="preserve">
+    <value>HKEY_CURRENT_USER\SOFTWARE\inMeeting\PassCore</value>
+  </data>
   <data name="ReNewPassLabel" xml:space="preserve">
     <value>Re-enter New Password</value>
   </data>
@@ -196,6 +199,6 @@
     <value>Username</value>
   </data>
   <data name="UsernameSubTitle" xml:space="preserve">
-    <value>Your organization's email address</value>
+    <value>Your organization's username</value>
   </data>
 </root>

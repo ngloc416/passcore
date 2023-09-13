@@ -69,7 +69,7 @@ namespace PassCoreWindowsApp
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(355, 32);
             this.Title.TabIndex = 98;
-            this.Title.Text = Resources.FormTitle;
+            this.Title.Text = "Change Account Password";
             // 
             // FormContainer
             // 
@@ -99,9 +99,9 @@ namespace PassCoreWindowsApp
             this.UsernameSubTitle.ForeColor = System.Drawing.Color.Black;
             this.UsernameSubTitle.Location = new System.Drawing.Point(72, 89);
             this.UsernameSubTitle.Name = "UsernameSubTitle";
-            this.UsernameSubTitle.Size = new System.Drawing.Size(210, 16);
+            this.UsernameSubTitle.Size = new System.Drawing.Size(184, 16);
             this.UsernameSubTitle.TabIndex = 97;
-            this.UsernameSubTitle.Text = Resources.UsernameSubTitle;
+            this.UsernameSubTitle.Text = "Your organization\'s username";
             // 
             // PassStrengthBar
             // 
@@ -122,7 +122,7 @@ namespace PassCoreWindowsApp
             this.CheckPassLabel.Name = "CheckPassLabel";
             this.CheckPassLabel.Size = new System.Drawing.Size(153, 16);
             this.CheckPassLabel.TabIndex = 95;
-            this.CheckPassLabel.Text = Resources.CheckPassLabel;
+            this.CheckPassLabel.Text = "Passwords do not match";
             this.CheckPassLabel.Visible = false;
             // 
             // ChangePassButton
@@ -149,7 +149,7 @@ namespace PassCoreWindowsApp
             this.ReNewPassTextBox.Size = new System.Drawing.Size(541, 30);
             this.ReNewPassTextBox.TabIndex = 4;
             this.ReNewPassTextBox.TextChanged += new System.EventHandler(this.ReNewPassTextBox_TextChanged);
-            this.ReNewPassTextBox.KeyDown += new KeyEventHandler(this.PressEnter);
+            this.ReNewPassTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PressEnter);
             // 
             // ReNewPassLabel
             // 
@@ -159,7 +159,7 @@ namespace PassCoreWindowsApp
             this.ReNewPassLabel.Name = "ReNewPassLabel";
             this.ReNewPassLabel.Size = new System.Drawing.Size(191, 20);
             this.ReNewPassLabel.TabIndex = 94;
-            this.ReNewPassLabel.Text = Resources.ReNewPassLabel;
+            this.ReNewPassLabel.Text = "Re-enter New Password";
             // 
             // NewPassTextBox
             // 
@@ -170,7 +170,7 @@ namespace PassCoreWindowsApp
             this.NewPassTextBox.Size = new System.Drawing.Size(541, 30);
             this.NewPassTextBox.TabIndex = 3;
             this.NewPassTextBox.TextChanged += new System.EventHandler(this.NewPassTextBox_TextChanged);
-            this.NewPassTextBox.KeyDown += new KeyEventHandler(this.PressEnter);
+            this.NewPassTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PressEnter);
             // 
             // NewPassLabel
             // 
@@ -180,7 +180,7 @@ namespace PassCoreWindowsApp
             this.NewPassLabel.Name = "NewPassLabel";
             this.NewPassLabel.Size = new System.Drawing.Size(121, 20);
             this.NewPassLabel.TabIndex = 93;
-            this.NewPassLabel.Text = Resources.NewPassLabel;
+            this.NewPassLabel.Text = "New Password";
             // 
             // CurrPassTextBox
             // 
@@ -191,7 +191,7 @@ namespace PassCoreWindowsApp
             this.CurrPassTextBox.Size = new System.Drawing.Size(541, 30);
             this.CurrPassTextBox.TabIndex = 2;
             this.CurrPassTextBox.TextChanged += new System.EventHandler(this.CurrPassTextBox_TextChanged);
-            this.CurrPassTextBox.KeyDown += new KeyEventHandler(this.PressEnter);
+            this.CurrPassTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PressEnter);
             // 
             // CurrPassLabel
             // 
@@ -201,17 +201,17 @@ namespace PassCoreWindowsApp
             this.CurrPassLabel.Name = "CurrPassLabel";
             this.CurrPassLabel.Size = new System.Drawing.Size(144, 20);
             this.CurrPassLabel.TabIndex = 92;
-            this.CurrPassLabel.Text = Resources.CurrPassLabel;
+            this.CurrPassLabel.Text = "Current Password";
             // 
             // UsernameTextBox
             // 
             this.UsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.UsernameTextBox.Location = new System.Drawing.Point(75, 53);
             this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.ReadOnly = true;
             this.UsernameTextBox.Size = new System.Drawing.Size(541, 30);
             this.UsernameTextBox.TabIndex = 1;
-            this.UsernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
-            this.UsernameTextBox.KeyDown += new KeyEventHandler(this.PressEnter);
+            this.UsernameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PressEnter);
             // 
             // UsernameLabel
             // 
@@ -221,7 +221,7 @@ namespace PassCoreWindowsApp
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(86, 20);
             this.UsernameLabel.TabIndex = 91;
-            this.UsernameLabel.Text = Resources.UsernameLabel;
+            this.UsernameLabel.Text = "Username";
             // 
             // PassCoreForm
             // 
@@ -231,7 +231,7 @@ namespace PassCoreWindowsApp
             this.Controls.Add(this.FormContainer);
             this.Controls.Add(this.TitleContainer);
             this.Name = "PassCoreForm";
-            this.Text = Resources.AppName;
+            this.Text = "Change Account Password | Self-Service Account Management Tools";
             this.TitleContainer.ResumeLayout(false);
             this.TitleContainer.PerformLayout();
             this.FormContainer.ResumeLayout(false);

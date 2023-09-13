@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PassCoreWindowsApp.Properties;
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.DirectoryServices.AccountManagement;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Windows.Forms;
@@ -36,18 +37,7 @@ namespace PassCoreWindowsApp
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Xử lý sự kiện nhập username
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            username = (sender as TextBox).Text;
-            CheckNull();
-            CheckEmail(username);
+            SetInitialUsername();
         }
 
         /// <summary>
@@ -166,11 +156,10 @@ namespace PassCoreWindowsApp
         /// </summary>
         private void SetNull()
         {
-            username = null;
+            SetInitialUsername();
             currPass = null;
             newPass = null;
             reNewPass = null;
-            this.UsernameTextBox.Text = null;
             this.CurrPassTextBox.Text = null;
             this.NewPassTextBox.Text = null;
             this.ReNewPassTextBox.Text = null;
@@ -251,33 +240,28 @@ namespace PassCoreWindowsApp
         }
 
         /// <summary>
-        /// Kiểm tra email hợp lệ
-        /// </summary>
-        /// <param name="email"></param>
-        private void CheckEmail(string email)
-        {
-            if (email != null && email != "")
-            {
-                bool check = new EmailAddressAttribute().IsValid(email);
-                if (!check)
-                {
-                    this.UsernameSubTitle.Text = Resources.CheckEmailLabel;
-                    this.UsernameSubTitle.ForeColor = System.Drawing.Color.Red;
-                    this.ChangePassButton.Enabled = this.ChangePassButton.Enabled && check;
-                    return;
-                }
-            }
-            this.UsernameSubTitle.Text = Resources.UsernameSubTitle;
-            this.UsernameSubTitle.ForeColor = System.Drawing.Color.Black;
-        }
-
-        /// <summary>
         /// Kiểm tra nhập lại mật khẩu mới đúng không
         /// </summary>
         private void CheckReNewPass()
         {
             this.CheckPassLabel.Visible = newPass != reNewPass && reNewPass != null && reNewPass != "";
             this.ChangePassButton.Enabled = this.ChangePassButton.Enabled && reNewPass == newPass;
+        }
+
+        /// <summary>
+        /// Hiển thị username của tài khoản hiện tại trong UsernameTextBox
+        /// </summary>
+        private void SetInitialUsername()
+        {
+            using (var context = new PrincipalContext(ContextType.Domain))
+            {
+                string name = UserPrincipal.Current.SamAccountName;
+                if (name != null)
+                {
+                    this.UsernameTextBox.Text = name;
+                    username = name;
+                }
+            }
         }
     }
 }

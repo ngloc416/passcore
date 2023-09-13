@@ -259,6 +259,15 @@ namespace PassCoreWindowsApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HKEY_CURRENT_USER\SOFTWARE\inMeeting\PassCore.
+        /// </summary>
+        internal static string RegistryKeyName {
+            get {
+                return ResourceManager.GetString("RegistryKeyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Re-enter New Password.
         /// </summary>
         internal static string ReNewPassLabel {
@@ -295,7 +304,7 @@ namespace PassCoreWindowsApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your organization&apos;s email address.
+        ///   Looks up a localized string similar to Your organization&apos;s username.
         /// </summary>
         internal static string UsernameSubTitle {
             get {
